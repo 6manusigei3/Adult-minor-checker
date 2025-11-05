@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Verification</title>
+</head>
+<body>
+  <h2>🔒 Age Verification System</h2>
+
+  <label for="age">Enter your age:</label>
+  <input type="number" id="age" placeholder="Enter age">
+  <button onclick="verifyAge()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function verifyAge() {
+      let age = document.getElementById("age").value;
+      let result = document.getElementById("result");
+
+      // Validate input
+      if (age === "") {
+        result.innerHTML = "⚠️ Please enter your age.";
+        return;
+      }
+
+      age = Number(age);
+
+      // Basic logic
+      if (age < 0) {
+        result.innerHTML = "🚫 Invalid age. Please enter a positive number.";
+      } else if (age >= 18) {
+        result.innerHTML = "✅ Access granted. You are an adult.";
+      } else {
+        result.innerHTML = "🔐 Access denied. You are a minor.";
+      }
+    }
+  </script>
+</body>
+</html>
